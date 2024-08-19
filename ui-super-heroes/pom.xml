@@ -19,6 +19,8 @@
     <quarkus.platform.version>3.13.2</quarkus.platform.version>
     <quinoa.version>2.4.5</quinoa.version>
     <surefire-plugin.version>3.4.0</surefire-plugin.version>
+    <quarkus.config-tracking.enabled>true</quarkus.config-tracking.enabled>
+    <develocity.quarkus.native.build.in.container.required>false</develocity.quarkus.native.build.in.container.required>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -117,7 +119,17 @@
         <version>${quarkus.platform.version}</version>
         <extensions>true</extensions>
         <executions>
-          <execution>
+            <execution>
+                <id>track-prod-config-changes</id>
+                <phase>process-resources</phase>
+                <goals>
+                    <goal>track-config-changes</goal>
+                </goals>
+                <configuration>
+                    <dumpCurrentWhenRecordedUnavailable>true</dumpCurrentWhenRecordedUnavailable>
+                </configuration>
+            </execution>
+            <execution>
             <goals>
               <goal>build</goal>
               <goal>generate-code</goal>

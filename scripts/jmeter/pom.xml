@@ -8,6 +8,8 @@
   <name>Quarkus Sample :: Super-Heroes :: JMeter Scripts</name>
   <properties>
     <jmeter-plugin.version>3.8.0</jmeter-plugin.version>
+    <quarkus.config-tracking.enabled>true</quarkus.config-tracking.enabled>
+    <develocity.quarkus.native.build.in.container.required>false</develocity.quarkus.native.build.in.container.required>
   </properties>
   <build>
     <plugins>
